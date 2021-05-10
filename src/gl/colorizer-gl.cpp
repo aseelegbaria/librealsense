@@ -152,7 +152,7 @@ namespace librealsense
             auto& curr_map = _maps[_map_index]->get_cache();
             _last_selected_cm = _map_index;
             glBindTexture(GL_TEXTURE_2D, _cm_texture);
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, curr_map.size(), 1, 0, GL_RGB, GL_FLOAT, curr_map.data());
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, static_cast<GLsizei>(curr_map.size()), 1, 0, GL_RGB, GL_FLOAT, curr_map.data());
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
@@ -222,7 +222,7 @@ namespace librealsense
                 if (_last_selected_cm != _map_index)
                 {
                     glBindTexture(GL_TEXTURE_2D, _cm_texture);
-                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, curr_map.size(), 1, 0, GL_RGB, GL_FLOAT, curr_map.data());
+                    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, static_cast<GLsizei>(curr_map.size()), 1, 0, GL_RGB, GL_FLOAT, curr_map.data());
                     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
                     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 

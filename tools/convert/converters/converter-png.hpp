@@ -40,7 +40,7 @@ namespace rs2 {
                         return;
                     }
 
-                    if (frames_map_get_and_set(videoframe.get_profile().stream_type(), videoframe.get_timestamp())) {
+                    if (frames_map_get_and_set(videoframe.get_profile().stream_type(), (long long)videoframe.get_timestamp())) {
                         return;
                     }
 
